@@ -39,4 +39,6 @@ public class IndexService extends S2AbstractService<Employee> {
 
         return new Integer(talkedMembers.toString());
     }
+
+    //加筆テスト
 }
