@@ -40,5 +40,5 @@ public class IndexService extends S2AbstractService<Employee> {
         return new Integer(talkedMembers.toString());
     }
 
-    //nagai = 23
+    //もう一回やったぜ
 }
