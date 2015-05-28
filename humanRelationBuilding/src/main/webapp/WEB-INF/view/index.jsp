@@ -37,6 +37,10 @@
             <html:errors/>
             <h1 id="title">Human Relation Building</h1>
             <h2 id="subtitle">トップページ</h2>
+
+            <p id="message"></p>
+
+
             <section id="inner">
                 <div id="dashboard">
                     <h3 class="inner-title">ダッシュボード</h3>
