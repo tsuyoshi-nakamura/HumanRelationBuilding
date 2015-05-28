@@ -8,9 +8,9 @@
         <title>Human Relation Building</title>
         <link rel="stylesheet" href='${f:url("/css/reset.css")}'>
         <link rel="stylesheet" href='${f:url("/css/style.css")}'>
+        <script src="${f:url('/js/jquery-1.11.2.min.js')}"></script>
 		<script type="text/javascript">
 
-		alert('<%=request.getContextPath()%>');
 
 		function getJson() {
 		    var data = {
@@ -41,6 +41,7 @@
                 <div id="dashboard">
                     <h3 class="inner-title">ダッシュボード</h3>
                     <input id="Button_Get" type="button" value="JSON読み込み" onclick="getJson();" />
+                    <input id="Button_Get" type="button" value="JSON読み込み2" onclick="$('#message').load('hello');" />
                     <dl>
                         <dt>話した人</dt>
                         <dd><span id="talked_members" class="ltxt"></span>人</dd>
