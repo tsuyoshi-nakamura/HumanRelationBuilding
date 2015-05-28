@@ -34,6 +34,8 @@ public class IndexAction {
 
     public IndexDto indexDto;
 
+    public String greeting;
+
     /**
      * トップ画面表示
      *
@@ -59,4 +61,5 @@ public class IndexAction {
 
         return "index.jsp";
     }
+
 }
