@@ -18,12 +18,9 @@
 		    		  "not_talked_memberst":20,
 		    		  "all_members":0.25,
 		    		  "talked_members_percentage":"かわいいペ物"
-
 		    		}
-
             var elem = document.getElementById("talked_members");
             elem.innerText = data.talked_members;
-
             var elem = document.getElementById("not_talked_members");
             elem.innerText = data.not_talked_members;
             var elem = document.getElementById("all_members");
