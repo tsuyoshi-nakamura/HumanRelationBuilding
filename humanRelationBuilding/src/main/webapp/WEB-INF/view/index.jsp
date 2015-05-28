@@ -28,6 +28,25 @@
             var elem = document.getElementById("talked_members_percentage");
             elem.innerText = data.talked_members_percentage;
 		 }
+
+
+
+		function loadJSON() {
+			  $.ajax({
+			    url: '${f:url('/index/load_json')}',
+			    type: 'GET',
+			    dataType: 'json',
+			    cache: false, //ブラウザにキャッシュさせません。
+			    error: function(){
+			        alert("jsonファイルの読み込みに失敗しました");
+			    },
+			    success: function(json){
+			    	alert("jsonファイルの読み込みに成功しました");
+
+
+			    }
+			  });
+			}
 		</script>
     </head>
 
@@ -38,14 +57,14 @@
             <h1 id="title">Human Relation Building</h1>
             <h2 id="subtitle">トップページ</h2>
 
-            <p id="message"></p>
+            <div id="response"></div>
 
 
             <section id="inner">
                 <div id="dashboard">
                     <h3 class="inner-title">ダッシュボード</h3>
                     <input id="Button_Get" type="button" value="JSON読み込み" onclick="getJson();" />
-                    <input id="Button_Get" type="button" value="JSON読み込み2" onclick="$('#message').load('hello');" />
+                    <input id="test" type="button" value="JSON読み込み2" onclick="loadJSON();" />
                     <dl>
                         <dt>話した人</dt>
                         <dd><span id="talked_members" class="ltxt"></span>人</dd>
