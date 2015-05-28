@@ -15,12 +15,19 @@
  */
 package jp.co.seattleconsulting.HumanRelationBuilding.action;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 
 import jp.co.seattleconsulting.HumanRelationBuilding.dto.IndexDto;
+import jp.co.seattleconsulting.HumanRelationBuilding.entity.Employee;
 import jp.co.seattleconsulting.HumanRelationBuilding.service.IndexService;
 
 import org.seasar.struts.annotation.Execute;
+import org.seasar.struts.util.ResponseUtil;
 
 /**
  * トップ画面の処理の制御を行うクラス.
@@ -34,7 +41,7 @@ public class IndexAction {
 
     public IndexDto indexDto;
 
-    public String greeting;
+    public List<Employee> deptItems;
 
     /**
      * トップ画面表示
@@ -60,6 +67,25 @@ public class IndexAction {
         indexDto.talkedMembersPercentage = String.valueOf(talkedMembersPercentage);
 
         return "index.jsp";
+    }
+
+
+
+    @Execute(validator = false)
+    public String load_json() throws IOException {
+
+        //データベースから部署データを全件取得します。
+        deptItems = indexService.findAll();
+
+        HttpServletResponse httpServletResponse = ResponseUtil.getResponse();
+        httpServletResponse.setContentType("application/json");
+        PrintWriter sendPoint = new PrintWriter(httpServletResponse.getOutputStream());
+
+        //Entity→JSON形式に変換して出力します。
+        sendPoint.println(JSON.encode(deptItems));
+        sendPoint.flush();
+        sendPoint.close();
+        return null;
     }
 
 }
