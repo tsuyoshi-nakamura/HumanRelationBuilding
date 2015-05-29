@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 import jp.co.seattleconsulting.HumanRelationBuilding.dto.IndexDto;
 import jp.co.seattleconsulting.HumanRelationBuilding.entity.Employee;
 import jp.co.seattleconsulting.HumanRelationBuilding.service.IndexService;
+import net.arnx.jsonic.JSON;
 
 import org.seasar.struts.annotation.Execute;
 import org.seasar.struts.util.ResponseUtil;
